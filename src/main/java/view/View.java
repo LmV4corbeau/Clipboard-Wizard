@@ -30,7 +30,7 @@ public class View extends JFrame {
         }
 
         this.panel = new JPanel();
-        this.panel.setLayout(new GridLayout(10,2));
+        this.panel.setLayout(new GridLayout(10, 1));
         this.panel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         this.setContentPane(this.panel);
 
@@ -39,9 +39,12 @@ public class View extends JFrame {
         this.setResizable(false);
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
         this.pack();
+
+        this.refresh();
     }
 
-    public void refresh(List list) {
+    public void refresh() {
+        List list = this.controller.getClipboardList().getList();
         this.getContentPane().removeAll();
 
         for (int i = 0; i < list.size(); i++) {
